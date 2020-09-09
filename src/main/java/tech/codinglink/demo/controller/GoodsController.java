@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.codinglink.demo.entity.CustomsInfo;
-import tech.codinglink.demo.modle.CustomsModle;
-import tech.codinglink.demo.service.CustomsService;
+import tech.codinglink.demo.entity.GoodsInfo;
+import tech.codinglink.demo.mapper.GoodsMapper;
+import tech.codinglink.demo.modle.GoodsModle;
+import tech.codinglink.demo.service.GoodsService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -18,15 +19,13 @@ import java.io.UnsupportedEncodingException;
 import java.security.Principal;
 import java.util.*;
 
-
 @CrossOrigin
 @Controller
 @RestController
-@RequestMapping("/Customs")
-public class CustomsController extends HttpServlet{
+@RequestMapping("/Goods")
+public class GoodsController extends HttpServlet {
     @Autowired
-    private CustomsService customsService;
-
+    private GoodsService goodsService;
 
     HttpServletRequest request=new HttpServletRequest() {
         @Override
@@ -378,22 +377,19 @@ public class CustomsController extends HttpServlet{
     @Autowired
     HttpSession httpSession;
 
-    public CustomsModle returnCustoms(List<CustomsInfo> customsInfos){
-        if(customsInfos!=null){
-            return new CustomsModle(0,"customs success",customsInfos);
+    public GoodsModle returnGoods(List<GoodsInfo> goodsInfos){
+        if(goodsInfos!=null){
+            return new GoodsModle(0,"good success",goodsInfos);
         }
-        return new CustomsModle(1,"customs error",null);
+        return new GoodsModle(1,"goods error",null);
     }
+
     /**
-     * 返回所有用户的信息
+     * 返回所有商品信息
      */
-    @RequestMapping("/getAllCustoms")
+    @RequestMapping("/getAllGoods")
     @ResponseBody
-    public CustomsModle getAllCustoms(){
-
-        return returnCustoms(customsService.getAllCustoms());
+    public GoodsModle getAllGoods(){
+        return returnGoods(goodsService.getAllGoods());
     }
-
-
-
 }

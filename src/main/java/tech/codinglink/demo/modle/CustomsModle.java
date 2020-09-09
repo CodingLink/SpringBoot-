@@ -14,10 +14,10 @@ public class CustomsModle extends BaseModle{
     @JsonProperty("data")
     List<CustomsInfo> data;
 
-    public CustomsModle(int code,String msg,int count,List<CustomsInfo> customsInfos){
+    public CustomsModle(int code,String msg,List<CustomsInfo> customsInfos){
         this.code=code;
         this.msg=msg;
-        this.count=count;
+        this.count=customsInfos.size();
         this.data=customsInfos;
     }
 }
