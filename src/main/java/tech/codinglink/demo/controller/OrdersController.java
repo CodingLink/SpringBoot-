@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import tech.codinglink.demo.entity.GoodsInfo;
-import tech.codinglink.demo.modle.GoodsModle;
-import tech.codinglink.demo.service.GoodsService;
+import tech.codinglink.demo.entity.OrdersInfo;
+import tech.codinglink.demo.modle.OrdersModle;
+import tech.codinglink.demo.service.OrderService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,10 +21,10 @@ import java.util.*;
 @CrossOrigin
 @Controller
 @RestController
-@RequestMapping("/Goods")
-public class GoodsController extends HttpServlet {
+@RequestMapping("/Orders")
+public class OrdersController {
     @Autowired
-    private GoodsService goodsService;
+    private OrderService orderService;
 
     HttpServletRequest request=new HttpServletRequest() {
         @Override
@@ -376,19 +376,19 @@ public class GoodsController extends HttpServlet {
     @Autowired
     HttpSession httpSession;
 
-    public GoodsModle returnGoods(List<GoodsInfo> goodsInfos){
-        if(goodsInfos!=null){
-            return new GoodsModle(0,"goods success",goodsInfos);
+    public OrdersModle returnOrders(List<OrdersInfo> ordersInfos){
+        if(ordersInfos!=null){
+            return new OrdersModle(0,"orders success",ordersInfos);
         }
-        return new GoodsModle(1,"goods error",null);
+        return new OrdersModle(1,"orders success",null);
     }
 
     /**
-     * 返回所有商品信息
+     * 返回所有订单信息
      */
-    @RequestMapping("/getAllGoods")
+    @RequestMapping("/getAllOrders")
     @ResponseBody
-    public GoodsModle getAllGoods(){
-        return returnGoods(goodsService.getAllGoods());
+    public OrdersModle getAllOrders(){
+        return returnOrders(orderService.getAllOrders());
     }
 }
