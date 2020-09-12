@@ -27,4 +27,15 @@ public class OrderService {
         }
         return null;
     }
+    /**
+     * 显示今日总营业额
+     */
+    public List<OrdersInfo> getToday() {
+        List<OrdersInfo> ordersInfos = orderMapper.getToday();
+        if (ordersInfos != null) {
+            System.out.println(ordersInfos);
+            return ordersInfos;
+        }
+        return null;
+    }
 }

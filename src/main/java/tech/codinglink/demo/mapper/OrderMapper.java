@@ -17,5 +17,7 @@ public interface OrderMapper {
     /**
      * 获取当日总营业额
      */
+    @Select("select sum(t2.price*t1.num) total from orders t1,goods t2 where t1.gid=t2.gid and now()")
+    public List<OrdersInfo> getToday();
 
 }

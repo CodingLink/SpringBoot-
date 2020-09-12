@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import tech.codinglink.demo.entity.OrdersInfo;
 import tech.codinglink.demo.modle.OrdersModle;
+import tech.codinglink.demo.modle.TodayModle;
 import tech.codinglink.demo.service.OrderService;
 
 import javax.servlet.*;
@@ -380,7 +381,14 @@ public class OrdersController {
         if(ordersInfos!=null){
             return new OrdersModle(0,"orders success",ordersInfos);
         }
-        return new OrdersModle(1,"orders success",null);
+        return new OrdersModle(1,"orders error",null);
+    }
+
+    public TodayModle returnToday(List<OrdersInfo> ordersInfos){
+        if(ordersInfos!=null){
+            return new TodayModle(0,"getToday success",ordersInfos);
+        }
+        return new TodayModle(1,"getToday error",null);
     }
 
     /**
@@ -390,5 +398,14 @@ public class OrdersController {
     @ResponseBody
     public OrdersModle getAllOrders(){
         return returnOrders(orderService.getAllOrders());
+    }
+
+    /**
+     * 显示今日总营业额
+     */
+    @RequestMapping("/getToday")
+    @ResponseBody
+    public TodayModle getToday(){
+        return returnToday(orderService.getToday());
     }
 }
