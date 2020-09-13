@@ -11,7 +11,7 @@ public interface OrderMapper {
     /**
      * 获取所有订单
      */
-    @Select("select t1.id,t1.uid,t1.gid,t2.gname,t2.price,t1.num,t2.price*t1.num total,t1.date from orders t1,goods t2 where t1.gid=t2.gid;")
+    @Select("select t1.id,t1.uid,t3.name,t1.gid,t2.gname,t2.price,t1.num,t2.price*t1.num total,t1.date from orders t1,goods t2,customs t3 where t1.gid=t2.gid and t1.uid=t3.uid;")
     public List<OrdersInfo> getAllOrders();
 
     /**

@@ -8,6 +8,7 @@ import java.util.Date;
 public class OrdersInfo {
     private Integer id;
     private Integer uid;
+    private String name;
     private Integer gid;
     private String gname;
     private Double price;
@@ -20,6 +21,7 @@ public class OrdersInfo {
         return "OrdersInfo{" +
                 "id=" + id +
                 ", uid=" + uid +
+                ", name='" + name + '\'' +
                 ", gid=" + gid +
                 ", gname='" + gname + '\'' +
                 ", price=" + price +
@@ -43,6 +45,14 @@ public class OrdersInfo {
 
     public void setUid(Integer uid) {
         this.uid = uid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getGid() {
