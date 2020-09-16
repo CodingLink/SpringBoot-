@@ -4,13 +4,18 @@ package tech.codinglink.demo.entity;
  * 用户表实体类
  */
 
-import java.util.Date;
 
 public class CustomsInfo {
     private Integer uid;
     private String name;
     private String phone;
-    private Date bir;
+
+    public CustomsInfo(Integer uid,String name, String phone) {
+        this.uid=uid;
+        this.name=name;
+        this.phone=phone;
+    }
+    public CustomsInfo(){}
 
     @Override
     public String toString() {
@@ -18,7 +23,6 @@ public class CustomsInfo {
                 "uid=" + uid +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
-                ", bir=" + bir +
                 '}';
     }
 
@@ -44,13 +48,5 @@ public class CustomsInfo {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public Date getBir() {
-        return bir;
-    }
-
-    public void setBir(Date bir) {
-        this.bir = bir;
     }
 }

@@ -41,4 +41,34 @@ public class CustomsService {
         }
         return null;
     }
+
+    /**
+     * 增加用户信息
+     */
+    public boolean addCustom(CustomsInfo customsInfo){
+        if(customsMapper.addCustom(customsInfo)>0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 删除用户信息
+     */
+    public boolean deleteCustomByUid(Integer uid){
+        if(customsMapper.deleteCustomByUid(uid)>0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 修改用户信息
+     */
+    public boolean updateCustom(String name,String phone,Integer uid){
+        if(customsMapper.updateCustom(name,phone,uid)>0){
+            return true;
+        }
+        return false;
+    }
 }
