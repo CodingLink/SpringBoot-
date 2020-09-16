@@ -31,4 +31,34 @@ public class GoodsService {
         }
         return null;
     }
+
+    /**
+     * 添加商品
+     */
+    public boolean addGood(Integer gid,String gname,Double price,String description,Integer num){
+        if(goodsMapper.addGood(gid, gname, price, description, num)>0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 修改商品
+     */
+    public boolean updateGood(String gname,Double price,String description,Integer num,Integer gid){
+        if(goodsMapper.updateGood(gname, price, description, num, gid)>0){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 通过gid删除商品
+     */
+    public boolean deleteGoodByGid(Integer gid){
+        if(goodsMapper.deleteGoodByGId(gid)>0){
+            return true;
+        }
+        return false;
+    }
 }

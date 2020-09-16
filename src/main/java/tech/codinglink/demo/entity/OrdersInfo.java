@@ -1,6 +1,6 @@
 package tech.codinglink.demo.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Order订单实体类
