@@ -1,2 +1,2 @@
-# springboot-zero-foundation-to-build-simple-background-exercises
+# springboot-exercises
 一个简单的SpringBoot后端练习
